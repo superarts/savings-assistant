@@ -1,0 +1,3 @@
+language: objective-c
+xcode_workspace: savings-assistant.xcworkspace
+xcode_scheme: savings-assistant
