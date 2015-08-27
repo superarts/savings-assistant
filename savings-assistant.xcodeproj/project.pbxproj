@@ -1,0 +1,732 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		715506AE75CB53186F64B6BA /* Pods_savings_assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFEF90E74F3F3F772DDE9443 /* Pods_savings_assistant.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		BD7C8914AE065870C27FFB53 /* Pods_savings_assistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264545F03A3D4722FCE03516 /* Pods_savings_assistantTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DF127E9B1B71B87E00838BD9 /* RateAppStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF127E9A1B71B87E00838BD9 /* RateAppStack.swift */; };
+		DF24B5641B6EEC4600CF4FED /* RangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF24B5631B6EEC4600CF4FED /* RangeViewController.swift */; };
+		DF24B5661B6EEECE00CF4FED /* DateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF24B5651B6EEECE00CF4FED /* DateRange.swift */; };
+		DF4B64811B6AD33900744C75 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF4B647F1B6AD33900744C75 /* ExpenseTableViewCell.swift */; };
+		DF4B64821B6AD33900744C75 /* ExpenseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DF4B64801B6AD33900744C75 /* ExpenseTableViewCell.xib */; };
+		DF7DEAA81B6F4232006398DA /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7DEAA71B6F4232006398DA /* UserDefaults.swift */; };
+		DF918A1C1B6B7FFC0040D34A /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF918A1B1B6B7FFC0040D34A /* Account.swift */; };
+		DF918A1E1B6B80A60040D34A /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF918A1D1B6B80A60040D34A /* Transaction.swift */; };
+		DFB200AF1B6DB89B0009026B /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB200AE1B6DB89B0009026B /* Globals.swift */; };
+		DFB200B11B6DCA1F0009026B /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB200B01B6DCA1F0009026B /* FilterViewController.swift */; };
+		DFD23E901B697AD2003D94F8 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD23E8E1B697AD2003D94F8 /* AccountTableViewCell.swift */; };
+		DFD23E911B697AD2003D94F8 /* AccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFD23E8F1B697AD2003D94F8 /* AccountTableViewCell.xib */; };
+		DFD24E171B65AD8800062517 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD24E161B65AD8800062517 /* AppDelegate.swift */; };
+		DFD24E191B65AD8800062517 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD24E181B65AD8800062517 /* MasterViewController.swift */; };
+		DFD24E1B1B65AD8800062517 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD24E1A1B65AD8800062517 /* DetailViewController.swift */; };
+		DFD24E1E1B65AD8800062517 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFD24E1C1B65AD8800062517 /* Main.storyboard */; };
+		DFD24E201B65AD8800062517 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFD24E1F1B65AD8800062517 /* Images.xcassets */; };
+		DFD24E231B65AD8800062517 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFD24E211B65AD8800062517 /* LaunchScreen.xib */; };
+		DFD24E2F1B65AD8900062517 /* savings_assistantTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD24E2E1B65AD8900062517 /* savings_assistantTests.swift */; };
+		DFDD35E31B6AF7F20003F2A6 /* UpdateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDD35E21B6AF7F20003F2A6 /* UpdateAccountViewController.swift */; };
+		DFDD35E51B6B0FB00003F2A6 /* UpdateTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDD35E41B6B0FB00003F2A6 /* UpdateTransactionViewController.swift */; };
+		DFDD35EA1B6B30780003F2A6 /* NSDate+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDD35E61B6B30780003F2A6 /* NSDate+Main.swift */; };
+		DFDD35EB1B6B30780003F2A6 /* NSDate+Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDD35E71B6B30780003F2A6 /* NSDate+Comparable.swift */; };
+		DFDD35EC1B6B30780003F2A6 /* NSDate+Periods.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDD35E81B6B30780003F2A6 /* NSDate+Periods.swift */; };
+		DFDD35ED1B6B30780003F2A6 /* NSDate+Count.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDD35E91B6B30780003F2A6 /* NSDate+Count.swift */; };
+		DFDD3E6B1B7080AA00AAFADB /* Pods-savings-assistant-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = DFDD3E6A1B7080AA00AAFADB /* Pods-savings-assistant-acknowledgements.plist */; };
+		DFDD3E6D1B70839900AAFADB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDD3E6C1B70839900AAFADB /* SettingsViewController.swift */; };
+		DFDD3E751B7094FA00AAFADB /* AcknowledgementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFDD3E741B7094FA00AAFADB /* AcknowledgementsViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DFD24E291B65AD8900062517 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFD24E091B65AD8800062517 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFD24E101B65AD8800062517;
+			remoteInfo = "savings-assistant";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		264545F03A3D4722FCE03516 /* Pods_savings_assistantTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_savings_assistantTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A01CE1D4B3DE74B6D0C96D7B /* Pods-savings-assistant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-savings-assistant.release.xcconfig"; path = "Pods/Target Support Files/Pods-savings-assistant/Pods-savings-assistant.release.xcconfig"; sourceTree = "<group>"; };
+		B2980CEEEC54F18DCA83D6A7 /* Pods-savings-assistantTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-savings-assistantTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-savings-assistantTests/Pods-savings-assistantTests.release.xcconfig"; sourceTree = "<group>"; };
+		D6AF6FF8933830E91D3B8241 /* Pods-savings-assistant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-savings-assistant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-savings-assistant/Pods-savings-assistant.debug.xcconfig"; sourceTree = "<group>"; };
+		DE0295635E32A1323BF1AD75 /* Pods-savings-assistantTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-savings-assistantTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-savings-assistantTests/Pods-savings-assistantTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DF127E9A1B71B87E00838BD9 /* RateAppStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RateAppStack.swift; sourceTree = "<group>"; };
+		DF24B5631B6EEC4600CF4FED /* RangeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangeViewController.swift; sourceTree = "<group>"; };
+		DF24B5651B6EEECE00CF4FED /* DateRange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateRange.swift; sourceTree = "<group>"; };
+		DF4B647F1B6AD33900744C75 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
+		DF4B64801B6AD33900744C75 /* ExpenseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpenseTableViewCell.xib; sourceTree = "<group>"; };
+		DF7DEAA71B6F4232006398DA /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		DF918A1B1B6B7FFC0040D34A /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		DF918A1D1B6B80A60040D34A /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		DFB200AE1B6DB89B0009026B /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		DFB200B01B6DCA1F0009026B /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		DFD23E8E1B697AD2003D94F8 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		DFD23E8F1B697AD2003D94F8 /* AccountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountTableViewCell.xib; sourceTree = "<group>"; };
+		DFD24E111B65AD8800062517 /* savings-assistant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "savings-assistant.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFD24E151B65AD8800062517 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFD24E161B65AD8800062517 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DFD24E181B65AD8800062517 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		DFD24E1A1B65AD8800062517 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		DFD24E1D1B65AD8800062517 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DFD24E1F1B65AD8800062517 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DFD24E221B65AD8800062517 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		DFD24E281B65AD8900062517 /* savings-assistantTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "savings-assistantTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFD24E2D1B65AD8900062517 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFD24E2E1B65AD8900062517 /* savings_assistantTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = savings_assistantTests.swift; sourceTree = "<group>"; };
+		DFDD35E21B6AF7F20003F2A6 /* UpdateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateAccountViewController.swift; sourceTree = "<group>"; };
+		DFDD35E41B6B0FB00003F2A6 /* UpdateTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTransactionViewController.swift; sourceTree = "<group>"; };
+		DFDD35E61B6B30780003F2A6 /* NSDate+Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Main.swift"; sourceTree = "<group>"; };
+		DFDD35E71B6B30780003F2A6 /* NSDate+Comparable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Comparable.swift"; sourceTree = "<group>"; };
+		DFDD35E81B6B30780003F2A6 /* NSDate+Periods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Periods.swift"; sourceTree = "<group>"; };
+		DFDD35E91B6B30780003F2A6 /* NSDate+Count.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Count.swift"; sourceTree = "<group>"; };
+		DFDD3E6A1B7080AA00AAFADB /* Pods-savings-assistant-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-savings-assistant-acknowledgements.plist"; path = "../Pods/Target Support Files/Pods-savings-assistant/Pods-savings-assistant-acknowledgements.plist"; sourceTree = "<group>"; };
+		DFDD3E6C1B70839900AAFADB /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DFDD3E711B708DC900AAFADB /* savings-assistant-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "savings-assistant-Bridging-Header.h"; sourceTree = "<group>"; };
+		DFDD3E741B7094FA00AAFADB /* AcknowledgementsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AcknowledgementsViewController.swift; sourceTree = "<group>"; };
+		FFEF90E74F3F3F772DDE9443 /* Pods_savings_assistant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_savings_assistant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DFD24E0E1B65AD8800062517 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				715506AE75CB53186F64B6BA /* Pods_savings_assistant.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFD24E251B65AD8900062517 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD7C8914AE065870C27FFB53 /* Pods_savings_assistantTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9BE8FF9DDB2E6401C8423174 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFEF90E74F3F3F772DDE9443 /* Pods_savings_assistant.framework */,
+				264545F03A3D4722FCE03516 /* Pods_savings_assistantTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCE7B2882A71EA141F62A972 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D6AF6FF8933830E91D3B8241 /* Pods-savings-assistant.debug.xcconfig */,
+				A01CE1D4B3DE74B6D0C96D7B /* Pods-savings-assistant.release.xcconfig */,
+				DE0295635E32A1323BF1AD75 /* Pods-savings-assistantTests.debug.xcconfig */,
+				B2980CEEEC54F18DCA83D6A7 /* Pods-savings-assistantTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DF4B64831B6AD36D00744C75 /* ExpenseTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DF4B647F1B6AD33900744C75 /* ExpenseTableViewCell.swift */,
+				DF4B64801B6AD33900744C75 /* ExpenseTableViewCell.xib */,
+			);
+			name = ExpenseTableViewCell;
+			sourceTree = "<group>";
+		};
+		DF918A1A1B6B7FEF0040D34A /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				DF918A1B1B6B7FFC0040D34A /* Account.swift */,
+				DF918A1D1B6B80A60040D34A /* Transaction.swift */,
+			);
+			name = Realm;
+			sourceTree = "<group>";
+		};
+		DFD23E8B1B697A9E003D94F8 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				DFD23E921B697AD7003D94F8 /* AccountTableViewCell */,
+				DF4B64831B6AD36D00744C75 /* ExpenseTableViewCell */,
+			);
+			name = CustomViews;
+			sourceTree = "<group>";
+		};
+		DFD23E8C1B697AA3003D94F8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DFD24E181B65AD8800062517 /* MasterViewController.swift */,
+				DFD24E1A1B65AD8800062517 /* DetailViewController.swift */,
+				DFDD35E21B6AF7F20003F2A6 /* UpdateAccountViewController.swift */,
+				DFDD35E41B6B0FB00003F2A6 /* UpdateTransactionViewController.swift */,
+				DFB200B01B6DCA1F0009026B /* FilterViewController.swift */,
+				DF24B5631B6EEC4600CF4FED /* RangeViewController.swift */,
+				DFDD3E6C1B70839900AAFADB /* SettingsViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		DFD23E8D1B697AA9003D94F8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DFD24E1C1B65AD8800062517 /* Main.storyboard */,
+				DFD24E1F1B65AD8800062517 /* Images.xcassets */,
+				DFD24E211B65AD8800062517 /* LaunchScreen.xib */,
+				DFDD3E6A1B7080AA00AAFADB /* Pods-savings-assistant-acknowledgements.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		DFD23E921B697AD7003D94F8 /* AccountTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DFD23E8E1B697AD2003D94F8 /* AccountTableViewCell.swift */,
+				DFD23E8F1B697AD2003D94F8 /* AccountTableViewCell.xib */,
+			);
+			name = AccountTableViewCell;
+			sourceTree = "<group>";
+		};
+		DFD24E081B65AD8800062517 = {
+			isa = PBXGroup;
+			children = (
+				DFD24E131B65AD8800062517 /* savings-assistant */,
+				DFD24E2B1B65AD8900062517 /* savings-assistantTests */,
+				DFD24E121B65AD8800062517 /* Products */,
+				CCE7B2882A71EA141F62A972 /* Pods */,
+				9BE8FF9DDB2E6401C8423174 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DFD24E121B65AD8800062517 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DFD24E111B65AD8800062517 /* savings-assistant.app */,
+				DFD24E281B65AD8900062517 /* savings-assistantTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DFD24E131B65AD8800062517 /* savings-assistant */ = {
+			isa = PBXGroup;
+			children = (
+				DFD24E161B65AD8800062517 /* AppDelegate.swift */,
+				DFDD35EF1B6B30920003F2A6 /* Classes */,
+				DFD23E8C1B697AA3003D94F8 /* ViewControllers */,
+				DFD23E8B1B697A9E003D94F8 /* CustomViews */,
+				DFD23E8D1B697AA9003D94F8 /* Resources */,
+				DFD24E141B65AD8800062517 /* Supporting Files */,
+			);
+			path = "savings-assistant";
+			sourceTree = "<group>";
+		};
+		DFD24E141B65AD8800062517 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DFDD3E711B708DC900AAFADB /* savings-assistant-Bridging-Header.h */,
+				DFD24E151B65AD8800062517 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DFD24E2B1B65AD8900062517 /* savings-assistantTests */ = {
+			isa = PBXGroup;
+			children = (
+				DFD24E2E1B65AD8900062517 /* savings_assistantTests.swift */,
+				DFD24E2C1B65AD8900062517 /* Supporting Files */,
+			);
+			path = "savings-assistantTests";
+			sourceTree = "<group>";
+		};
+		DFD24E2C1B65AD8900062517 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DFD24E2D1B65AD8900062517 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DFDD35EE1B6B307B0003F2A6 /* NSDate+Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DFDD35E61B6B30780003F2A6 /* NSDate+Main.swift */,
+				DFDD35E71B6B30780003F2A6 /* NSDate+Comparable.swift */,
+				DFDD35E81B6B30780003F2A6 /* NSDate+Periods.swift */,
+				DFDD35E91B6B30780003F2A6 /* NSDate+Count.swift */,
+			);
+			name = "NSDate+Utilities";
+			sourceTree = "<group>";
+		};
+		DFDD35EF1B6B30920003F2A6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DF7DEAA71B6F4232006398DA /* UserDefaults.swift */,
+				DF127E9A1B71B87E00838BD9 /* RateAppStack.swift */,
+				DFB200AE1B6DB89B0009026B /* Globals.swift */,
+				DF24B5651B6EEECE00CF4FED /* DateRange.swift */,
+				DF918A1A1B6B7FEF0040D34A /* Realm */,
+				DFDD35EE1B6B307B0003F2A6 /* NSDate+Utilities */,
+				DFDD3E761B70950100AAFADB /* AcknowledgementsViewController */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		DFDD3E761B70950100AAFADB /* AcknowledgementsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DFDD3E741B7094FA00AAFADB /* AcknowledgementsViewController.swift */,
+			);
+			name = AcknowledgementsViewController;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DFD24E101B65AD8800062517 /* savings-assistant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFD24E321B65AD8900062517 /* Build configuration list for PBXNativeTarget "savings-assistant" */;
+			buildPhases = (
+				E91A27C13915A774B66B3C2F /* Check Pods Manifest.lock */,
+				DFD24E0D1B65AD8800062517 /* Sources */,
+				DFD24E0E1B65AD8800062517 /* Frameworks */,
+				DFD24E0F1B65AD8800062517 /* Resources */,
+				EC73F40CFEE030BFF17BA5EA /* Embed Pods Frameworks */,
+				ED650E7E9CBFF4F1129F6782 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "savings-assistant";
+			productName = "savings-assistant";
+			productReference = DFD24E111B65AD8800062517 /* savings-assistant.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DFD24E271B65AD8900062517 /* savings-assistantTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFD24E351B65AD8900062517 /* Build configuration list for PBXNativeTarget "savings-assistantTests" */;
+			buildPhases = (
+				10BD464003A6984F14145648 /* Check Pods Manifest.lock */,
+				DFD24E241B65AD8900062517 /* Sources */,
+				DFD24E251B65AD8900062517 /* Frameworks */,
+				DFD24E261B65AD8900062517 /* Resources */,
+				18CFFAF1E42E316C09F22933 /* Embed Pods Frameworks */,
+				71F3C34573CFBE791D65DDC6 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DFD24E2A1B65AD8900062517 /* PBXTargetDependency */,
+			);
+			name = "savings-assistantTests";
+			productName = "savings-assistantTests";
+			productReference = DFD24E281B65AD8900062517 /* savings-assistantTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DFD24E091B65AD8800062517 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Joe Christopher Paul Amanse";
+				TargetAttributes = {
+					DFD24E101B65AD8800062517 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					DFD24E271B65AD8900062517 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = DFD24E101B65AD8800062517;
+					};
+				};
+			};
+			buildConfigurationList = DFD24E0C1B65AD8800062517 /* Build configuration list for PBXProject "savings-assistant" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DFD24E081B65AD8800062517;
+			productRefGroup = DFD24E121B65AD8800062517 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DFD24E101B65AD8800062517 /* savings-assistant */,
+				DFD24E271B65AD8900062517 /* savings-assistantTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DFD24E0F1B65AD8800062517 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFD24E1E1B65AD8800062517 /* Main.storyboard in Resources */,
+				DFD23E911B697AD2003D94F8 /* AccountTableViewCell.xib in Resources */,
+				DFDD3E6B1B7080AA00AAFADB /* Pods-savings-assistant-acknowledgements.plist in Resources */,
+				DF4B64821B6AD33900744C75 /* ExpenseTableViewCell.xib in Resources */,
+				DFD24E231B65AD8800062517 /* LaunchScreen.xib in Resources */,
+				DFD24E201B65AD8800062517 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFD24E261B65AD8900062517 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		10BD464003A6984F14145648 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		18CFFAF1E42E316C09F22933 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-savings-assistantTests/Pods-savings-assistantTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71F3C34573CFBE791D65DDC6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-savings-assistantTests/Pods-savings-assistantTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E91A27C13915A774B66B3C2F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EC73F40CFEE030BFF17BA5EA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-savings-assistant/Pods-savings-assistant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED650E7E9CBFF4F1129F6782 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-savings-assistant/Pods-savings-assistant-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DFD24E0D1B65AD8800062517 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF24B5641B6EEC4600CF4FED /* RangeViewController.swift in Sources */,
+				DF918A1E1B6B80A60040D34A /* Transaction.swift in Sources */,
+				DFDD35ED1B6B30780003F2A6 /* NSDate+Count.swift in Sources */,
+				DF24B5661B6EEECE00CF4FED /* DateRange.swift in Sources */,
+				DF918A1C1B6B7FFC0040D34A /* Account.swift in Sources */,
+				DFDD3E751B7094FA00AAFADB /* AcknowledgementsViewController.swift in Sources */,
+				DFDD3E6D1B70839900AAFADB /* SettingsViewController.swift in Sources */,
+				DF4B64811B6AD33900744C75 /* ExpenseTableViewCell.swift in Sources */,
+				DFD24E1B1B65AD8800062517 /* DetailViewController.swift in Sources */,
+				DFDD35EA1B6B30780003F2A6 /* NSDate+Main.swift in Sources */,
+				DFDD35EC1B6B30780003F2A6 /* NSDate+Periods.swift in Sources */,
+				DFDD35E51B6B0FB00003F2A6 /* UpdateTransactionViewController.swift in Sources */,
+				DFB200AF1B6DB89B0009026B /* Globals.swift in Sources */,
+				DFD24E191B65AD8800062517 /* MasterViewController.swift in Sources */,
+				DFB200B11B6DCA1F0009026B /* FilterViewController.swift in Sources */,
+				DFDD35EB1B6B30780003F2A6 /* NSDate+Comparable.swift in Sources */,
+				DF7DEAA81B6F4232006398DA /* UserDefaults.swift in Sources */,
+				DFD23E901B697AD2003D94F8 /* AccountTableViewCell.swift in Sources */,
+				DF127E9B1B71B87E00838BD9 /* RateAppStack.swift in Sources */,
+				DFDD35E31B6AF7F20003F2A6 /* UpdateAccountViewController.swift in Sources */,
+				DFD24E171B65AD8800062517 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFD24E241B65AD8900062517 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFD24E2F1B65AD8900062517 /* savings_assistantTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DFD24E2A1B65AD8900062517 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFD24E101B65AD8800062517 /* savings-assistant */;
+			targetProxy = DFD24E291B65AD8900062517 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DFD24E1C1B65AD8800062517 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DFD24E1D1B65AD8800062517 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DFD24E211B65AD8800062517 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DFD24E221B65AD8800062517 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DFD24E301B65AD8900062517 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DFD24E311B65AD8900062517 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DFD24E331B65AD8900062517 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6AF6FF8933830E91D3B8241 /* Pods-savings-assistant.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = "savings-assistant/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "savings-assistant/savings-assistant-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DFD24E341B65AD8900062517 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A01CE1D4B3DE74B6D0C96D7B /* Pods-savings-assistant.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = "savings-assistant/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "savings-assistant/savings-assistant-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		DFD24E361B65AD8900062517 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE0295635E32A1323BF1AD75 /* Pods-savings-assistantTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "savings-assistantTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/savings-assistant.app/savings-assistant";
+			};
+			name = Debug;
+		};
+		DFD24E371B65AD8900062517 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2980CEEEC54F18DCA83D6A7 /* Pods-savings-assistantTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "savings-assistantTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/savings-assistant.app/savings-assistant";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DFD24E0C1B65AD8800062517 /* Build configuration list for PBXProject "savings-assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFD24E301B65AD8900062517 /* Debug */,
+				DFD24E311B65AD8900062517 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFD24E321B65AD8900062517 /* Build configuration list for PBXNativeTarget "savings-assistant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFD24E331B65AD8900062517 /* Debug */,
+				DFD24E341B65AD8900062517 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFD24E351B65AD8900062517 /* Build configuration list for PBXNativeTarget "savings-assistantTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFD24E361B65AD8900062517 /* Debug */,
+				DFD24E371B65AD8900062517 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DFD24E091B65AD8800062517 /* Project object */;
+}
