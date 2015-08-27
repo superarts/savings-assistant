@@ -1,3 +1,5 @@
 language: objective-c
 xcode_workspace: savings-assistant.xcworkspace
 xcode_scheme: savings-assistant
+
+before_install: gem install cocoapods -v '=0.34.0'
