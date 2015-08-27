@@ -10,11 +10,8 @@ Savings Assistant is an expense tracker app. It helps you keep track of your exp
 Run pod install on project directory. Then open `savings-assistant.xcworkspace`, and build.
 
 # Components
-- Async
-- Realm
-
-Savings Assistant  
-Copyright (C) 2015 Joe Christopher Paul Amanse
+- Async - https://github.com/duemunk/Async
+- Realm - https://github.com/realm/realm-cocoa
 
 # LICENSE
 
