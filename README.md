@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/chrisamanse/savings-assistant.svg?branch=master)](https://travis-ci.org/chrisamanse/savings-assistant)
 
+Savings Assistant is available on the [App Store](https://itunes.apple.com/us/app/savings-assistant/id1022760996).
+
 Savings Assistant is an expense tracker app. It helps you keep track of your expenses and earnings. You can group those transactions into Accounts. It can also filter your transactions by date so you can easily compute your total earnings in a day, month, year or a lifetime. No external account integration needed.
 
 # Build
