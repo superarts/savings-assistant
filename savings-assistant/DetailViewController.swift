@@ -245,5 +245,8 @@ extension DetailViewController: UITableViewDataSource {
 extension DetailViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("showTransaction", sender: nil)
+        
+        // Deselect row after performing segue
+        tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
 }
