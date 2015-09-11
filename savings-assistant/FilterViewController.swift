@@ -84,7 +84,7 @@ class FilterViewController: UIViewController {
         tableView.reloadData()
         
         // Add realm notification
-        println("Filter: Adding realm notification")
+        print("Filter: Adding realm notification")
         realmNotificationToken = Realm().addNotificationBlock({ (notification, realm) -> Void in
             println("Filter: RealmNotification received")
             
@@ -104,7 +104,7 @@ class FilterViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         // Clear realm notification
-        println("Filter: Removing realm notification")
+        print("Filter: Removing realm notification")
         if let notificationToken = realmNotificationToken {
             Realm().removeNotification(notificationToken)
         }
@@ -176,7 +176,7 @@ class FilterViewController: UIViewController {
             if let destinationVC = (segue.destinationViewController as? UINavigationController)?.topViewController as? UpdateTransactionViewController {
                 destinationVC.account = account
                 
-                if let indexPath = tableView.indexPathForSelectedRow() {
+                if let indexPath = tableView.indexPathForSelectedRow {
                     destinationVC.transaction = filteredTransactions[indexPath.row]
                 }
             }
@@ -234,6 +234,6 @@ extension FilterViewController: UITableViewDelegate {
 extension FilterViewController: RangeViewControllerDelegate {
     func rangeViewControllerDidFinish(controller: RangeViewController) {
         dateRange = DateRange(startDate: controller.dateRange.startDate.startOf(.Day), endDate: controller.dateRange.endDate.endOf(.Day))
-        println("Filter: \(dateRange.endDate)")
+        print("Filter: \(dateRange.endDate)")
     }
 }

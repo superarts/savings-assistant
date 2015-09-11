@@ -79,7 +79,7 @@ class DetailViewController: UIViewController {
         tableView.reloadData()
         
         // Add realm notification
-        println("Detail: Adding realm notification")
+        print("Detail: Adding realm notification")
         realmNotificationToken = Realm().addNotificationBlock({ (notification, realm) -> Void in
             println("Detail: RealmNotification received")
             
@@ -99,7 +99,7 @@ class DetailViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         // Clear realm notification
-        println("Detail: Removing realm notification")
+        print("Detail: Removing realm notification")
         if let notificationToken = realmNotificationToken {
             Realm().removeNotification(notificationToken)
         }
@@ -108,7 +108,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("didLoad")
+        print("didLoad")
         
         configureView()
         
@@ -127,7 +127,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        println("didLayout")
+        print("didLayout")
         
         updateInsetsAndOffsets()
     }
@@ -191,7 +191,7 @@ class DetailViewController: UIViewController {
             if let destinationVC = (segue.destinationViewController as? UINavigationController)?.topViewController as? UpdateTransactionViewController {
                 destinationVC.account = account
                 
-                if let indexPath = tableView.indexPathForSelectedRow() {
+                if let indexPath = tableView.indexPathForSelectedRow {
                     destinationVC.transaction = transactions[indexPath.row]
                 }
             }

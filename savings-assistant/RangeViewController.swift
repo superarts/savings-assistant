@@ -85,7 +85,7 @@ class RangeViewController: UITableViewController {
         dateRange.endDate = endDatePicker.date
         
         delegate?.rangeViewControllerDidFinish(self)
-        println("Range: \(dateRange.endDate)")
+        print("Range: \(dateRange.endDate)")
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -98,7 +98,7 @@ class RangeViewController: UITableViewController {
 extension RangeViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath == indexPathForStartDatePicker || indexPath == indexPathForEndDatePicker {
-            var editing = indexPath == indexPathForStartDatePicker ? editingStartDate : editingEndDate
+            let editing = indexPath == indexPathForStartDatePicker ? editingStartDate : editingEndDate
             if editing {
                 var height: CGFloat = 217
                 if traitCollection.verticalSizeClass == .Compact {

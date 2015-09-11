@@ -49,7 +49,7 @@ class MasterViewController: UITableViewController {
         tableView.reloadData()
         
         // Add realm notification
-        println("Master: Adding realm notification")
+        print("Master: Adding realm notification")
         realmNotificationToken = Realm().addNotificationBlock({ (notification, realm) -> Void in
             println("Master: RealmNotification received")
             self.tableView.reloadData()
@@ -67,7 +67,7 @@ class MasterViewController: UITableViewController {
         super.viewWillDisappear(animated)
         
         // Clear realm notification
-        println("Master: Removing realm notification")
+        print("Master: Removing realm notification")
         if let notificationToken = realmNotificationToken {
             Realm().removeNotification(notificationToken)
         }
@@ -102,7 +102,7 @@ class MasterViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
                 let selectedAccount = accounts[indexPath.row]
                 
                 

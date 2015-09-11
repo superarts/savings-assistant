@@ -84,7 +84,7 @@ class UpdateTransactionViewController: UITableViewController {
             updateDateTimeLabel()
             
             // Show notes placeholder when there are no notes
-            notesPlaceholder.hidden = count(notesTextView.text) > 0
+            notesPlaceholder.hidden = notesTextView.text.characters.count > 0
             
             if editingMode {
                 navigationItem.title = "Edit Transaction"
@@ -115,7 +115,7 @@ class UpdateTransactionViewController: UITableViewController {
         // Get expense name
         var expenseName = nameTextField.text
         // If blank, replace with default name
-        if count(expenseName.stringByReplacingOccurrencesOfString(" ", withString: "", options: nil, range: nil)) == 0 {
+        if expenseName.stringByReplacingOccurrencesOfString(" ", withString: "", options: [], range: nil).characters.count == 0 {
             if expense {
                 expenseName = "Expense"
             } else {
@@ -136,7 +136,7 @@ class UpdateTransactionViewController: UITableViewController {
         
         // Get notes and clear notes if if all spaces
         var notes = notesTextView.text
-        if count(notes.stringByReplacingOccurrencesOfString(" ", withString: "", options: nil, range: nil)) == 0 {
+        if notes.stringByReplacingOccurrencesOfString(" ", withString: "", options: [], range: nil).characters.count == 0 {
             notes = ""
         }
         
@@ -207,7 +207,7 @@ extension UpdateTransactionViewController {
 extension UpdateTransactionViewController: UITextFieldDelegate {
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         if textField == amountTextField {
-            if string.rangeOfCharacterFromSet(validCharacterSet.invertedSet, options: nil, range: nil) != nil {
+            if string.rangeOfCharacterFromSet(validCharacterSet.invertedSet, options: [], range: nil) != nil {
                 return false
             }
             return true
@@ -220,6 +220,6 @@ extension UpdateTransactionViewController: UITextFieldDelegate {
 // MARK: - Text view delegate
 extension UpdateTransactionViewController: UITextViewDelegate {
     func textViewDidChange(textView: UITextView) {
-        notesPlaceholder.hidden = count(textView.text) > 0
+        notesPlaceholder.hidden = textView.text.characters.count > 0
     }
 }
