@@ -27,7 +27,7 @@
 
 import Foundation
 
-extension NSDate: Equatable {}
+extension NSDate {}
 public func ==(lhs: NSDate, rhs: NSDate) -> Bool {
     return lhs.isEqualToDate(rhs)
 }

@@ -1,30 +1,30 @@
 PODS:
-  - Async (1.3.1)
-  - Realm (0.94.0):
-    - Realm/Headers (= 0.94.0)
-  - Realm/Headers (0.94.0)
-  - RealmSwift (0.94.0):
-    - Realm (= 0.94.0)
-  - VTAcknowledgementsViewController (0.14)
+  - AsyncSwift (1.7.2)
+  - Realm (0.102.1):
+    - Realm/Headers (= 0.102.1)
+  - Realm/Headers (0.102.1)
+  - RealmSwift (0.102.1):
+    - Realm (= 0.102.1)
+  - VTAcknowledgementsViewController (1.0)
 
 DEPENDENCIES:
-  - Async (from `https://github.com/duemunk/Async.git`)
+  - AsyncSwift (from `https://github.com/duemunk/Async.git`)
   - RealmSwift
   - VTAcknowledgementsViewController
 
 EXTERNAL SOURCES:
-  Async:
+  AsyncSwift:
     :git: https://github.com/duemunk/Async.git
 
 CHECKOUT OPTIONS:
-  Async:
-    :commit: 9e64046b767fe11010891f5b7fe2aed613a6ee55
+  AsyncSwift:
+    :commit: e8e53f0fd39fabc226f4609d1c910c8af27a17cc
     :git: https://github.com/duemunk/Async.git
 
 SPEC CHECKSUMS:
-  Async: edb15b1e34181d7c9873ce6b5d6eabc1c99e638b
-  Realm: a046149653e0ca220b65b5783da907aa5b74d86c
-  RealmSwift: 5efbbf1a5c179a7237e4d428594e41619fa167ba
-  VTAcknowledgementsViewController: 11a869dd69598a852f12699aeaf36e2589d3fc1b
+  AsyncSwift: 15c496983f752a3ab8d1be17e64dd4c6f2a31239
+  Realm: 5254be610db3e5024879684717bf038990bb59ec
+  RealmSwift: 3e24e6bcf56d98ccc134f4909e00839b81a659af
+  VTAcknowledgementsViewController: a67fcf112d2530b6073a32fb6f60b8190e0265e4
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

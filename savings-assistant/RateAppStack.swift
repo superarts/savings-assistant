@@ -77,7 +77,7 @@ class RateAppStack {
     func incrementAppLaunches() {
         appLaunchesCount++
         
-        println("> App launches: \(appLaunchesCount)")
+        print("> App launches: \(appLaunchesCount)")
         attemptShowRateAlert()
     }
     
@@ -85,7 +85,7 @@ class RateAppStack {
         // If did rate app
         if !didRateApp {
             if appLaunchesCount >= targetCount {
-                println("! Should show rate alert")
+                print("! Should show rate alert")
                 
                 showRateAlert()
             }
@@ -117,7 +117,7 @@ class RateAppStack {
     func openRateLink() {
         if let rateURL = NSURL(string: rateLink) {
             didRateApp = UIApplication.sharedApplication().openURL(rateURL)
-            println("DidOpenURL,DidRateApp: \(didRateApp)")
+            print("DidOpenURL,DidRateApp: \(didRateApp)")
         }
     }
     

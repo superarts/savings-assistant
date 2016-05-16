@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let splitViewController = self.window!.rootViewController as! UISplitViewController
         splitViewController.preferredDisplayMode = .AllVisible
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+        navigationController.topViewController?.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         splitViewController.delegate = self
         
         // Change appearances
@@ -61,32 +61,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             let account2 = Account()
             account2.name = "Savings"
             
-            // Save account
-            let realm = Realm()
-            realm.write({ () -> Void in
-                realm.add(account1, update: true)
-                realm.add(account2, update: true)
-            })
-            
-            let transaction1 = Transaction()
-            transaction1.account = account1
-            transaction1.name = "Transportation"
-            transaction1.amount = -20
-            transaction1.date = NSDate.yesterday().previous(.Hour)
-            
-            let transaction2 = Transaction()
-            transaction2.account = account1
-            transaction2.name = "Gift"
-            transaction2.amount = 100
-            transaction2.date = NSDate()
-            
-            // Save transaction
-            realm.write { () -> Void in
-                realm.add(transaction1, update: true)
-                realm.add(transaction2, update: true)
-            }
-            
-            UserDefaults.firstLaunch = false
+			do {
+                // Save account
+                let realm = try Realm()
+                try realm.write({ () -> Void in
+                    realm.add(account1, update: true)
+                    realm.add(account2, update: true)
+                })
+                
+                let transaction1 = Transaction()
+                transaction1.account = account1
+                transaction1.name = "Transportation"
+                transaction1.amount = -20
+                transaction1.date = NSDate.yesterday().previous(.Hour)
+                
+                let transaction2 = Transaction()
+                transaction2.account = account1
+                transaction2.name = "Gift"
+                transaction2.amount = 100
+                transaction2.date = NSDate()
+                
+                // Save transaction
+                try realm.write { () -> Void in
+                    realm.add(transaction1, update: true)
+                    realm.add(transaction2, update: true)
+                }
+                
+                UserDefaults.firstLaunch = false
+        	} catch let error as NSError {
+        		print("WARNING \(error)")
+        	}
         }
         
         return true
@@ -138,7 +142,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     // MARK: - Split view
 
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController!, ontoPrimaryViewController primaryViewController:UIViewController!) -> Bool {
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {
         if let secondaryAsNavController = secondaryViewController as? UINavigationController {
             if let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController {
                 if topAsDetailController.account == nil {
@@ -158,7 +162,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             // Push view controller
             var viewControllerToPush = vc
             if let navController = vc as? UINavigationController {
-                viewControllerToPush = navController.topViewController
+                viewControllerToPush = navController.topViewController!
             }
             selectedNavigationViewController.pushViewController(viewControllerToPush, animated: true)
             

@@ -35,7 +35,7 @@ class SettingsViewController: UITableViewController {
         case indexPathForAcknowledgements:
             if let plistPath = NSBundle.mainBundle().pathForResource("Pods-savings-assistant-acknowledgements", ofType: "plist") {
                 let viewController = AcknowledgementsViewController(acknowledgementsPlistPath: plistPath)
-                let navController = UINavigationController(rootViewController: viewController)
+                let navController = UINavigationController(rootViewController: viewController!)
                 splitViewController?.showDetailViewController(navController, sender: self)
             }
         default:

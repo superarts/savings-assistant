@@ -17,7 +17,11 @@ class MasterViewController: UITableViewController {
     private var _accounts: Results<Account>?
     var accounts: Results<Account> {
         if _accounts == nil {
-            _accounts = Realm().objects(Account).sorted("name", ascending: true)
+			do {
+                try _accounts = Realm().objects(Account).sorted("name", ascending: true)
+    		} catch let error as NSError {
+    			print("WARNING \(error)")
+    		}
         }
         return _accounts!
     }
@@ -49,12 +53,16 @@ class MasterViewController: UITableViewController {
         tableView.reloadData()
         
         // Add realm notification
-        println("Master: Adding realm notification")
-        realmNotificationToken = Realm().addNotificationBlock({ (notification, realm) -> Void in
-            println("Master: RealmNotification received")
-            self.tableView.reloadData()
-//            self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
-        })
+        print("Master: Adding realm notification")
+		do {
+            try realmNotificationToken = Realm().addNotificationBlock({ (notification, realm) -> Void in
+                print("Master: RealmNotification received")
+                self.tableView.reloadData()
+    //            self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+            })
+		} catch let error as NSError {
+			print("WARNING \(error)")
+		}
         
         if !didFirstAppear {
             RateAppStack.sharedInstance().incrementAppLaunches()
@@ -67,9 +75,10 @@ class MasterViewController: UITableViewController {
         super.viewWillDisappear(animated)
         
         // Clear realm notification
-        println("Master: Removing realm notification")
+        print("Master: Removing realm notification")
         if let notificationToken = realmNotificationToken {
-            Realm().removeNotification(notificationToken)
+            notificationToken.stop()
+            //Realm().removeNotification(notificationToken)
         }
         realmNotificationToken = nil
     }
@@ -80,7 +89,11 @@ class MasterViewController: UITableViewController {
         // For split view controller
         if let split = self.splitViewController {
             let controllers = split.viewControllers
-            detailViewController = controllers[controllers.count-1].topViewController as? DetailViewController
+			if let controller = controllers[controllers.count-1] as? UINavigationController {
+                detailViewController = controller.topViewController as? DetailViewController
+			} else {
+				print("WARNING: not nav")
+			}
         }
         
         // Load AccountTableViewCell
@@ -102,7 +115,7 @@ class MasterViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow() {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
                 let selectedAccount = accounts[indexPath.row]
                 
                 
@@ -152,24 +165,32 @@ class MasterViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let account = accounts[indexPath.row]
-            let realm = Realm()
-            realm.write({ () -> Void in
-                realm.delete(account.transactions)
-                realm.delete(account)
-            })
+			do {
+                let realm = try Realm()
+                try realm.write({ () -> Void in
+                    realm.delete(account.transactions)
+                    realm.delete(account)
+                })
+    		} catch let error as NSError {
+    			print("WARNING \(error)")
+    		}
             
             // Make sure to delete transactions without an account linked to them. Delete in background
-            Async.background({ () -> Void in
-                let bgRealm = Realm()
-                let danglingTransactions = bgRealm.objects(Transaction).filter("account = nil")
-                
-                if danglingTransactions.count > 0 {
-                    println("! Found dangling transactions. Deleting...")
-                    bgRealm.write({ () -> Void in
-                        bgRealm.delete(danglingTransactions)
-                        println("! Deleted dangling transactions.")
-                    })
-                }
+			Async.background(block: { () -> Void in
+				do {
+                    let bgRealm = try Realm()
+                    let danglingTransactions = bgRealm.objects(Transaction).filter("account = nil")
+					
+                    if danglingTransactions.count > 0 {
+                        print("! Found dangling transactions. Deleting...")
+                        try bgRealm.write({ () -> Void in
+                            bgRealm.delete(danglingTransactions)
+                            print("! Deleted dangling transactions.")
+                        })
+                    }
+        		} catch let error as NSError {
+        			print("WARNING \(error)")
+        		}
             })
             
         } else if editingStyle == .Insert {

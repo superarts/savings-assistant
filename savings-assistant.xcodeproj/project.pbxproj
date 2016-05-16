@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		715506AE75CB53186F64B6BA /* Pods_savings_assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFEF90E74F3F3F772DDE9443 /* Pods_savings_assistant.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		BD7C8914AE065870C27FFB53 /* Pods_savings_assistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264545F03A3D4722FCE03516 /* Pods_savings_assistantTests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		715506AE75CB53186F64B6BA /* Pods_savings_assistant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFEF90E74F3F3F772DDE9443 /* Pods_savings_assistant.framework */; };
+		BD7C8914AE065870C27FFB53 /* Pods_savings_assistantTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264545F03A3D4722FCE03516 /* Pods_savings_assistantTests.framework */; };
 		DF127E9B1B71B87E00838BD9 /* RateAppStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF127E9A1B71B87E00838BD9 /* RateAppStack.swift */; };
 		DF24B5641B6EEC4600CF4FED /* RangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF24B5631B6EEC4600CF4FED /* RangeViewController.swift */; };
 		DF24B5661B6EEECE00CF4FED /* DateRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF24B5651B6EEECE00CF4FED /* DateRange.swift */; };
@@ -334,6 +334,8 @@
 		DFD24E091B65AD8800062517 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Joe Christopher Paul Amanse";
 				TargetAttributes = {

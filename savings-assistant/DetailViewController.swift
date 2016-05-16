@@ -43,7 +43,11 @@ class DetailViewController: UIViewController {
     private var _transactions: Results<Transaction>?
     var transactions: Results<Transaction> {
         if _transactions == nil {
-            _transactions = Realm().objects(Transaction).filter("account = %@", account ?? nil as COpaquePointer).sorted("date", ascending: false)
+			do {
+                _transactions = try Realm().objects(Transaction).filter("account = %@", account!).sorted("date", ascending: false)
+			} catch let error as NSError {
+				print("WARNING \(error)")
+			}
         }
         return _transactions!
     }
@@ -79,36 +83,47 @@ class DetailViewController: UIViewController {
         tableView.reloadData()
         
         // Add realm notification
-        println("Detail: Adding realm notification")
-        realmNotificationToken = Realm().addNotificationBlock({ (notification, realm) -> Void in
-            println("Detail: RealmNotification received")
-            
-            // Set account to nil if invalid
-            if self.account?.invalidated ?? false {
-                self.account = nil
-            }
-            
-            self.tableView.reloadData()
-//            self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
-            
-            // Reconfigure view
-            self.configureView()
-        })
+        print("Detail: Adding realm notification")
+		do {
+            realmNotificationToken = try Realm().addNotificationBlock({ (notification, realm) -> Void in
+                print("Detail: RealmNotification received")
+                
+                // Set account to nil if invalid
+                if self.account?.invalidated ?? false {
+                    self.account = nil
+                }
+                
+                self.tableView.reloadData()
+    //            self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+                
+                // Reconfigure view
+                self.configureView()
+            })
+		} catch let error as NSError {
+			print("WARNING \(error)")
+		}
     }
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
         // Clear realm notification
-        println("Detail: Removing realm notification")
+        print("Detail: Removing realm notification")
         if let notificationToken = realmNotificationToken {
-            Realm().removeNotification(notificationToken)
+            notificationToken.stop()
+			/*
+			do {
+                try Realm().removeNotification(notificationToken)
+    		} catch let error as NSError {
+    			print("WARNING \(error)")
+    		}
+			*/
         }
         realmNotificationToken = nil
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("didLoad")
+        print("didLoad")
         
         configureView()
         
@@ -127,7 +142,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        println("didLayout")
+        print("didLayout")
         
         updateInsetsAndOffsets()
     }
@@ -191,7 +206,7 @@ class DetailViewController: UIViewController {
             if let destinationVC = (segue.destinationViewController as? UINavigationController)?.topViewController as? UpdateTransactionViewController {
                 destinationVC.account = account
                 
-                if let indexPath = tableView.indexPathForSelectedRow() {
+                if let indexPath = tableView.indexPathForSelectedRow {
                     destinationVC.transaction = transactions[indexPath.row]
                 }
             }
@@ -231,10 +246,14 @@ extension DetailViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let transaction = transactions[indexPath.row]
-            let realm = Realm()
-            realm.write({ () -> Void in
-                realm.delete(transaction)
-            })
+			do {
+                let realm = try Realm()
+                try realm.write({ () -> Void in
+                    realm.delete(transaction)
+                })
+			} catch let error as NSError {
+				print("WARNING \(error)")
+			}
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }

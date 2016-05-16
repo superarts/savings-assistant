@@ -18,11 +18,11 @@ class AcknowledgementsViewController: VTAcknowledgementsViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if let acknowledgement = acknowledgements[indexPath.row] as? VTAcknowledgement {
+		if let acknowledgement = acknowledgements?[indexPath.row] {
             let viewController = VTAcknowledgementViewController(title: acknowledgement.title, text: acknowledgement.text)
-            viewController.textViewFont = UIFont(name: "Avenir-Book", size: 13) ?? UIFont.preferredFontForTextStyle(UIApplication.sharedApplication().preferredContentSizeCategory)
+            viewController?.textView?.font = UIFont(name: "Avenir-Book", size: 13) ?? UIFont.preferredFontForTextStyle(UIApplication.sharedApplication().preferredContentSizeCategory)
             
-            navigationController?.pushViewController(viewController, animated: true)
+            navigationController?.pushViewController(viewController!, animated: true)
         }
     }
 }

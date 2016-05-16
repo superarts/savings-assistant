@@ -31,7 +31,10 @@ class FilterViewController: UIViewController {
     private var _filteredTransactions: Results<Transaction>?
     var filteredTransactions: Results<Transaction> {
         if _filteredTransactions == nil {
-            _filteredTransactions = Realm().objects(Transaction).filter("account = %@", account ?? nil as COpaquePointer).filter(transactionsPredicate).sorted("date", ascending: false)
+			do {
+                _filteredTransactions = try Realm().objects(Transaction).filter("account = %@", account!).filter(transactionsPredicate).sorted("date", ascending: false)
+			} catch {
+			}
         }
         return _filteredTransactions!
     }
@@ -84,18 +87,22 @@ class FilterViewController: UIViewController {
         tableView.reloadData()
         
         // Add realm notification
-        println("Filter: Adding realm notification")
-        realmNotificationToken = Realm().addNotificationBlock({ (notification, realm) -> Void in
-            println("Filter: RealmNotification received")
-            
-            // Reset filtered transactions
-            self._filteredTransactions = nil
-            
-            self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Left)
-            
-            // Reconfigure view
-            self.configureView()
-        })
+        print("Filter: Adding realm notification")
+		do {
+            realmNotificationToken = try Realm().addNotificationBlock({ (notification, realm) -> Void in
+                print("Filter: RealmNotification received")
+                
+                // Reset filtered transactions
+                self._filteredTransactions = nil
+                
+                self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Left)
+                
+                // Reconfigure view
+                self.configureView()
+            })
+    	} catch let error as NSError {
+    		print("WARNING \(error)")
+    	}
         
         dateRange = DateRange(startDate: self.dateRange.startDate, endDate: self.dateRange.endDate)
     }
@@ -104,9 +111,10 @@ class FilterViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         // Clear realm notification
-        println("Filter: Removing realm notification")
+        print("Filter: Removing realm notification")
         if let notificationToken = realmNotificationToken {
-            Realm().removeNotification(notificationToken)
+            notificationToken.stop()
+            //Realm().removeNotification(notificationToken)
         }
         realmNotificationToken = nil
     }
@@ -176,7 +184,7 @@ class FilterViewController: UIViewController {
             if let destinationVC = (segue.destinationViewController as? UINavigationController)?.topViewController as? UpdateTransactionViewController {
                 destinationVC.account = account
                 
-                if let indexPath = tableView.indexPathForSelectedRow() {
+                if let indexPath = tableView.indexPathForSelectedRow {
                     destinationVC.transaction = filteredTransactions[indexPath.row]
                 }
             }
@@ -213,10 +221,14 @@ extension FilterViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             let transaction = filteredTransactions[indexPath.row]
-            let realm = Realm()
-            realm.write({ () -> Void in
-                realm.delete(transaction)
-            })
+			do {
+                let realm = try Realm()
+                try realm.write({ () -> Void in
+                    realm.delete(transaction)
+                })
+        	} catch let error as NSError {
+        		print("WARNING \(error)")
+        	}
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
@@ -234,6 +246,6 @@ extension FilterViewController: UITableViewDelegate {
 extension FilterViewController: RangeViewControllerDelegate {
     func rangeViewControllerDidFinish(controller: RangeViewController) {
         dateRange = DateRange(startDate: controller.dateRange.startDate.startOf(.Day), endDate: controller.dateRange.endDate.endOf(.Day))
-        println("Filter: \(dateRange.endDate)")
+        print("Filter: \(dateRange.endDate)")
     }
 }

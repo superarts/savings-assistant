@@ -50,7 +50,7 @@ class UpdateAccountViewController: UITableViewController {
             titleTextField.text = account?.name ?? ""
             notesTextView.text = account?.notes ?? ""
             
-            notesPlaceholder.hidden = count(notesTextView.text) > 0
+            notesPlaceholder.hidden = notesTextView.text.characters.count > 0
             
             if editingMode {
                 navigationItem.title = "Edit Account"
@@ -68,7 +68,7 @@ class UpdateAccountViewController: UITableViewController {
     func isValidAccountName(name: String) -> Bool {
         // TODO: Validate account name
         var invalidState: AccountInvalidState?
-        if count(name.stringByReplacingOccurrencesOfString(" ", withString: "", options: nil, range: nil)) == 0 {
+        if name.stringByReplacingOccurrencesOfString(" ", withString: "", options: [], range: nil).characters.count == 0 {
             invalidState = .NameIsBlank
         }
         
@@ -103,7 +103,7 @@ class UpdateAccountViewController: UITableViewController {
         let accountName = titleTextField.text
         let notes = notesTextView.text
         
-        if isValidAccountName(accountName) {
+        if isValidAccountName(accountName!) {
             // Account name should be valid at this point
             
             let updateAccount = Account()
@@ -113,19 +113,23 @@ class UpdateAccountViewController: UITableViewController {
                 updateAccount.id = account!.id
             }
             
-            updateAccount.name = accountName
+            updateAccount.name = accountName!
             
             // Validate notes (don't save if empty or all space)
-            if count(notes.stringByReplacingOccurrencesOfString(" ", withString: "", options: nil, range: nil)) > 0 {
+            if notes.stringByReplacingOccurrencesOfString(" ", withString: "", options: [], range: nil).characters.count > 0 {
                 // Add notes
                 updateAccount.notes = notes
             }
             
             // Save account
-            let realm = Realm()
-            realm.write({ () -> Void in
-                realm.add(updateAccount, update: true)
-            })
+			do {
+                let realm = try Realm()
+                try realm.write({ () -> Void in
+                    realm.add(updateAccount, update: true)
+                })
+        	} catch let error as NSError {
+        		print("WARNING \(error)")
+        	}
             
             // After saving, dismiss
             dismissViewControllerAnimated(true, completion: nil)
@@ -140,6 +144,6 @@ class UpdateAccountViewController: UITableViewController {
 
 extension UpdateAccountViewController: UITextViewDelegate {
     func textViewDidChange(textView: UITextView) {
-        notesPlaceholder.hidden = count(textView.text) > 0
+        notesPlaceholder.hidden = textView.text.characters.count > 0
     }
 }

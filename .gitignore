@@ -45,3 +45,5 @@ Carthage/Build
 # Fastlane
 #   Snapshot
 screenshots/
+
+.*.sw*
